@@ -14,12 +14,6 @@ class FaceNet(nn.Module,):
         self.logits = nn.Linear(512, 136)
 
     def forward(self, x):
-        """Calculate embeddings or logits given a batch of input image tensors.
-        Arguments:
-            x {torch.tensor} -- Batch of image tensors representing faces.
-        Returns:
-            torch.tensor -- Batch of embedding vectors or multinomial logits.
-        """
         x = self.model(x)
         x = self.avgpool_1a(x)
         x = self.dropout(x)
